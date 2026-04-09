@@ -2,26 +2,34 @@
 
 ## 📌 Description
 
-Ce projet est un outil de cybersécurité permettant d’évaluer la robustesse d’un mot de passe selon plusieurs critères de sécurité.
+Password Strength Checker est un outil de cybersécurité développé en Python permettant d’évaluer la robustesse d’un mot de passe.
 
-Il fournit un score, des recommandations d’amélioration et une estimation du temps nécessaire pour casser le mot de passe par attaque brute-force.
+Il analyse plusieurs critères de sécurité et fournit :
+
+* un score de sécurité
+* un retour détaillé pour améliorer le mot de passe
+* une estimation du temps nécessaire pour le casser via une attaque brute-force
 
 ---
 
 ## 🚀 Fonctionnalités
 
-* ✅ Analyse de la longueur du mot de passe
-* ✅ Détection de :
+* 🔍 Analyse de la longueur du mot de passe
+* 🔠 Détection des majuscules et minuscules
+* 🔢 Détection des chiffres
+* 🔣 Détection des caractères spéciaux
+* 📊 Calcul d’un score de sécurité
+* 🧠 Feedback détaillé pour améliorer le mot de passe
+* ⚠️ Détection des mots de passe courants (liste locale)
+* ⏱️ Estimation du temps de cassage (brute-force)
+* 🕒 Affichage du temps en :
 
-  * majuscules
-  * minuscules
-  * chiffres
-  * caractères spéciaux
-* ✅ Score de sécurité (faible / moyen / fort)
-* ✅ Feedback détaillé pour améliorer le mot de passe
-* ✅ Détection de mots de passe courants
-* ✅ Estimation du temps de cassage (brute-force)
-* ✅ Affichage du temps en années, jours, heures, minutes et secondes
+  * années
+  * jours
+  * heures
+  * minutes
+  * secondes
+* 🎨 Affichage coloré dans le terminal
 
 ---
 
@@ -29,22 +37,24 @@ Il fournit un score, des recommandations d’amélioration et une estimation du 
 
 * Python 3
 * Regex (`re`)
-* Colorama (affichage en couleur)
+* colorama
 
 ---
 
 ## 📂 Structure du projet
 
-```
+```bash
 password-checker/
 ├── main.py
 ├── common_passwords.txt
-├── README.md
+├── requirements.txt
+├── .gitignore
+└── README.md
 ```
 
 ---
 
-## ▶️ Utilisation
+## ⚙️ Installation
 
 ### 1. Cloner le projet
 
@@ -53,13 +63,33 @@ git clone https://github.com/TON_USERNAME/password-checker.git
 cd password-checker
 ```
 
-### 2. Installer les dépendances
+---
+
+### 2. Créer un environnement virtuel
 
 ```bash
-pip install colorama
+python3 -m venv venv
 ```
 
-### 3. Lancer le programme
+---
+
+### 3. Activer l’environnement
+
+```bash
+source venv/bin/activate
+```
+
+---
+
+### 4. Installer les dépendances
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ Utilisation
 
 ```bash
 python main.py
@@ -73,39 +103,40 @@ python main.py
 Entrez votre mot de passe : Test123
 
 Score : 3
-Mot de passe MOYEN
+MOYEN
 
 Améliorations :
 - Ajouter un caractère spécial
 
-Temps estimé pour casser le mot de passe : 2 heures 15 minutes 10 secondes
+Temps estimé pour casser le mot de passe :
+2 heures 15 minutes 10 secondes
 ```
 
 ---
 
-## 🎯 Objectif du projet
+## 📚 Objectif pédagogique
 
-Ce projet a été réalisé dans le cadre d’un apprentissage en cybersécurité afin de comprendre :
+Ce projet permet de comprendre :
 
-* les bonnes pratiques de création de mots de passe
-* les bases des attaques par brute-force
-* l’importance de l’entropie
+* les bonnes pratiques de sécurité des mots de passe
+* le principe des attaques par brute-force
+* l’importance de la complexité et de l’entropie
 
 ---
 
 ## ⚠️ Avertissement
 
-Ce projet est éducatif.
+Ce projet est à but éducatif uniquement.
 Les estimations de temps sont approximatives et ne reflètent pas les capacités réelles des attaquants modernes (GPU, dictionnaires, etc.).
 
 ---
 
 ## 📈 Améliorations futures
 
-* Interface graphique (Tkinter / Web)
+* Interface graphique (Tkinter ou Web)
 * API REST
-* Intégration dans un outil de sécurité
 * Analyse avancée (patterns, répétitions)
+* Intégration dans un outil de cybersécurité
 
 ---
 
