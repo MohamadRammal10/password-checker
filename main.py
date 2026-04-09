@@ -32,6 +32,12 @@ def calculate_score(password):
 
     return score, feedback
 
+# Fonction pour detecter les mots de passe courant
+def is_common_password(password) :
+    with open("common_passwords.txt", "r") as f :
+        common = f.read().splitlines()
+    return password in common
+
 # Recuperer le Mot de passe
 password = input("Entrez votre mot de passe : ")
 
@@ -44,6 +50,10 @@ print("Score : ", score)
 # Affichage des ameliorations
 for f in feedback :
     print("     - ", f)
+
+# Affichage si mot de passe courant
+if is_common_password(password) :
+    print("Mot de passe tres courant !!")
 
 # Affichage du niveau de securite du mot de passe
 if score <= 2 :
