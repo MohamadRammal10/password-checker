@@ -1,4 +1,7 @@
 import re
+from colorama import Fore, init, Style
+
+init()
 
 # Fonction de calcul de score, de faire la liste d'amelioration et de trouver le temps de cassage du mot de passe
 def calculate_score(password):
@@ -35,7 +38,7 @@ def calculate_score(password):
         score += 1
         charset += 32    # estimation realiste des caracteres speciaux
     else :
-        feedback.append("Ajouter un caractere special")
+        feedback.append("Ajouter un caractère spécial")
 
     # Calcul du temps de cassage en secondes
     combinations = charset ** password_length
@@ -70,7 +73,7 @@ def format_time(seconds) :
     result = []
 
     if years > 0 :
-        result.append(f"{years} annees")
+        result.append(f"{years} années")
     if days > 0 :
         result.append(f"{days} jours")
     if hours > 0 :
@@ -90,23 +93,27 @@ score, feedback, crack_time_sec = calculate_score(password)
 formatted_crack_time = format_time(crack_time_sec)
 
 # Affichage du score
-print("Score : ", score)
+print("\nScore : ", score)
 
 # Affichage du niveau de securite du mot de passe
 if score <= 2 :
-    print("Mot de passe FAIBLE")
+    print("Mot de passe", Fore.RED + "FAIBLE\n" + Style.RESET_ALL)
 elif score <= 4 :
-    print("Mot de passe MOYEN")
+    print("Mot de passe", Fore.YELLOW + "MOYEN\n" + Style.RESET_ALL)
 else :
-    print("Mot de passe FORT")
+    print("Mot de passe", Fore.GREEN + "FORT\n" + Style.RESET_ALL)
 
 # Affichage des ameliorations
-for f in feedback :
-    print("     - ", f)
+if len(feedback) >0 :
+    print("Améliorations : ")
+    for f in feedback :
+        print("- ", f)
+    print("")
 
 # Affichage si mot de passe courant
 if is_common_password(password) :
-    print("Mot de passe tres courant !!")
+    print("Mot de passe très courant !!")
 
 # Affichage de l'estimation de temps de cassage du mot de passe
-print("Temps estime pour casser le mot de passe : ", formatted_crack_time)
+print("Temps estimé pour casser le mot de passe :")
+print(formatted_crack_time)
