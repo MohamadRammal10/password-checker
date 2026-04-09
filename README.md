@@ -103,7 +103,7 @@ python main.py
 Entrez votre mot de passe : Test123
 
 Score : 3
-MOYEN
+Mot de passe MOYEN
 
 Améliorations :
 - Ajouter un caractère spécial
