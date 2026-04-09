@@ -112,7 +112,7 @@ if len(feedback) >0 :
 
 # Affichage si mot de passe courant
 if is_common_password(password) :
-    print("Mot de passe très courant !!")
+    print(Fore.RED + "Mot de passe très courant !!\n" + Style.RESET_ALL)
 
 # Affichage de l'estimation de temps de cassage du mot de passe
 print("Temps estimé pour casser le mot de passe :")
